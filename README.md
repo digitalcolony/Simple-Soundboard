@@ -8,7 +8,7 @@ This code creates a Soundboard on a single page using PHP, Javascript, JQuery, H
 ### Getting Started
   1. Create a new folder and place all the MP3 drops you wish to have on the soundboard.
   2. On the top of the index.php file define that folder where is says $mp3directory. 
-  3. Deploy. 
+  3. Deploy to a web server that supports PHP (most do). 
 
 ### Some Ideas For Your Soundboard
   1. Search for "CSS Button Generator" to create your own custom super cool looking buttons. Place that CSS into the sb.css file.  
