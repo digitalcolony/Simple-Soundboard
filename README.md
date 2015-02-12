@@ -3,6 +3,7 @@ This code creates a Soundboard on a single page using PHP, Javascript, JQuery, H
   1. Loads way faster.
   2. Tablet and Mobile friendly. 
   3. Sorts alphabetically automatically.  
+  4. You can play multiple drops simultaneously. 
 
 ### Getting Started
   1. Create a new folder and place all the MP3 drops you wish to have on the soundboard.
