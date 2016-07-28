@@ -14,8 +14,8 @@ This code creates a Soundboard on a single page using PHP, Javascript, JQuery, H
   1. Search for "CSS Button Generator" to create your own custom super cool looking buttons. Place that CSS into the sb.css file.  
   2. I set the preload: none. This is because I have 200+ drops and want the initial page draw to be fast. Remove this line if you prefer the drops load on page draw and not on play. 
   
-### Demo
-  This is the [Neil Rogers Soundboard](https://neilrogers.org/soundboard/) built using this code. 
+### Demo and Sharing
+  This is the [Neil Rogers Soundboard](https://neilrogers.org/soundboard/) built using this code. Let me know if you build a Soundboard you would like to share. You can email me the link (digitalcolony@gmail.com) and I'll share it here for others to see. 
 
 
   
