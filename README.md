@@ -1,5 +1,5 @@
 # Simple Single Page Soundboard
-This code creates a Soundboard on a single page using PHP, Javascript, JQuery, HTML5 and CSS. I was motivated to create when Soundboard.com ignored my two feature requests. This version is better than Soundboard.com in at least 4 ways:
+This code creates a Soundboard on a single page using PHP, Javascript, JQuery, HTML5 and CSS. I was motivated to create this when Soundboard.com ignored my two feature requests. This version is better than Soundboard.com in at least 4 ways:
   1. Loads way faster.
   2. Tablet and Mobile friendly. 
   3. Sorts alphabetically automatically.  
