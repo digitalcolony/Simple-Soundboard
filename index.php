@@ -1,11 +1,10 @@
 <?php
 	/* SETUP: 
-		Enter folder where sounds are besides the $mp3directory assignment below. 
-		If the sounds are in same folder as code the directory will be a period (.) 
+		#1 Enter folder where sounds are besides the $mp3directory assignment below. 		   
+		#2 To display a ? on the button use [Q] in the file name. Example: why[Q].mp3 
 	*/
 	$mp3directory = 'sounds';
 	$mp3 = array();
-
 	// confirm directory exists 
 	if (file_exists($mp3directory)) {
 		// build an array of MP3 files 
@@ -31,7 +30,7 @@
 <html>
 <head>
   	<meta charset="utf-8">
-  	<title>Simple Soundboard</title>
+  	<title>Simple Soundboard - File Name for Buttons</title>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   	<meta name="description" content="Simple Soundboard">
   	<meta name="viewport" content="width=device-width">
