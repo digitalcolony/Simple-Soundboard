@@ -8,7 +8,6 @@
     $mp3 = array();
 	require_once('getid3/getid3.php');
 	$getid3_engine = new getID3;
-
 	// confirm directory exists 
 	if (file_exists($mp3directory)) {
 		// build an array of MP3 files 
@@ -24,7 +23,8 @@
 						implode('<br>', $id3_info['comments_html']['title'])         : "");
 					$file_artist = htmlentities(!empty($id3_info['comments_html']['artist']) ? 
 						implode('<br>', $id3_info['comments_html']['artist'])         : "");
-					// Not sure why, but getting a double quote to display right required a double decode.	
+					// Not sure why, but getting a double quote to display right required a double decode.
+					$file_title = html_entity_decode(html_entity_decode($file_title));
 					$file_artist = html_entity_decode(html_entity_decode($file_artist));
 					
                     $file_name = $fileinfo->getFilename();
