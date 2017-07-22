@@ -18,7 +18,7 @@ The code in index.php will draw the buttons on the soundboard using the file nam
   2. I set the preload: none. This is because I have 200+ drops and want the initial page draw to be fast. Remove this line if you prefer the drops load on page draw and not on play. 
   
 ## Resources
-  1. The ID3 version of the sounboard uses getID3 from James Heinrich. (https://github.com/JamesHeinrich/getID3/)
+  1. The ID3 version of the soundboard uses getID3 from James Heinrich. (https://github.com/JamesHeinrich/getID3/)
   2. The ID3 version uses Ballon.CSS for the mouseover tooltips. (https://kazzkiq.github.io/balloon.css/)
   3. The styling for the soundboard buttons were created with help from CSS Button Generator. (http://css3buttongenerator.com/)
 
