@@ -10,7 +10,7 @@ This code creates a Soundboard on a single page using PHP, Javascript, JQuery, H
 ## Getting Started
 
 1. Create a new folder and place all the MP3 drops you wish to have on the soundboard. For this repo, I've added 20 drops to get you started.
-1. Update the settings in the **config.php** file. This includes the nme of the drops flder, title of the Soundboard, and how you want the sound files to preload.
+1. Update the settings in the **config.php** file. This includes the name of the drops folder, title of the Soundboard, and how you want the sound files to preload.
 1. Deploy to a web server that supports PHP (most do).
 
 ## Filename version (original version)
@@ -23,7 +23,7 @@ Example: **why[Q].mp3**.
 
 If your MP3 files have Titles defined in the ID3 tags, you will want to use the **id3_version.php** page for your Simple Soundboard. The code will draw the buttons on the soundboard using the getID3 library to read the title and artist. The ID3 title will be used for the button text and the artist will be used for a tooltip on mouseover.
 
-This is the better version to use. If you need a tool to help you edit the ID3 tags of your MP3 files so they all have title and artist, look into [Mp3Tag](https://www.mp3tag.de/en/).
+This is the better version to use. If you need a tool to help you edit the ID3 tags of your MP3 files so they all have titles, look into [Mp3Tag](https://www.mp3tag.de/en/). Artist is optional. Drops without an artist will not have a tooltip.
 
 ## Some Ideas For Your Soundboard
 
