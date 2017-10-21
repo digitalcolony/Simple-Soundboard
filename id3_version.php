@@ -77,7 +77,7 @@
 				var artist = sound[2]         	
 				var thisAudio = $('<audio/>').attr({
 					src: BASE_AUDIO_PATH + url,
-					preload: "none",
+					preload: "<?php echo($configs->PRELOAD_AUDIO); ?>",
 					onplay:"$(this).siblings('button').css('color', 'yellow');",
 					onended: "$(this).siblings('button').css('color', 'white');"	
 					}) 	
