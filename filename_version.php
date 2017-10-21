@@ -1,9 +1,6 @@
 <?php
-	/* SETUP: 
-		#1 Enter folder where sounds are besides the $mp3directory assignment below. 		   
-		#2 To display a ? on the button use [Q] in the file name. Example: why[Q].mp3 
-	*/
-	$mp3directory = 'sounds';
+	$configs = include("config.php");
+	$mp3directory = $configs->MP3_DIRECTORY;
 	$mp3 = array();
 	// confirm directory exists 
 	if (file_exists($mp3directory)) {
@@ -25,12 +22,14 @@
 		echo "ERROR: Directory defined [". $mp3directory ."] does not exist.";
 		exit();
 	}
+	// sort drops alphabetically
+	sort($mp3);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   	<meta charset="utf-8">
-  	<title>Simple Soundboard - File Name for Buttons</title>
+  	<title><?php echo($configs->PAGE_TITLE); ?></title>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   	<meta name="description" content="Simple Soundboard">
   	<meta name="viewport" content="width=device-width">
@@ -48,18 +47,13 @@
 		var ar = <?php echo json_encode($mp3) ?>;
 		var BASE_AUDIO_PATH = '' + <?php echo json_encode($mp3directory) ?> + '/';
 
-		// sort files to be in alphabetical order by title
-		ar.sort(function (a, b) {
-			return a.toLowerCase().localeCompare(b.toLowerCase());
-		});
-
 		// Add <audio> files and buttons to soundboard
 		// preload set to "none" is optional
 		ar.map(function(url){
 			$('#soundboard').append(function(){
 				var thisAudio = $('<audio/>').attr({
 					src: BASE_AUDIO_PATH + url,
-					preload: "none",
+					preload: "<?php echo($configs->PRELOAD_AUDIO); ?>",
 					onplay:"$(this).siblings('button').css('color', 'yellow');",
 					onended: "$(this).siblings('button').css('color', 'white');"	
 					}) 	

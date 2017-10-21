@@ -1,10 +1,7 @@
 <?php
-	/* SETUP: 
-		#1 Enter folder where sounds are besides the $mp3directory assignment below. 		   
-		#2 If a button title isn't correct, use a MP3 tag program to fix it and try again.
-	   NOTE: If an MP3 has a blank Title ID3 tag, the button text will be the file name.   
-	*/
-	$mp3directory = 'sounds';	 
+	$configs = include("config.php");
+	$mp3directory = $configs->MP3_DIRECTORY;
+
     $mp3 = array();
 	require_once('getid3/getid3.php');
 	$getid3_engine = new getID3;
@@ -43,12 +40,14 @@
 		echo "ERROR: Directory defined [". $mp3directory ."] does not exist.";
 		exit();
 	}
+	// sort drops alphabetically 
+	sort($mp3);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   	<meta charset="utf-8">
-  	<title>Simple Soundboard</title>
+	<title><?php echo($configs->PAGE_TITLE); ?></title>
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   	<meta name="description" content="Simple Soundboard">
   	<meta name="viewport" content="width=device-width">
@@ -66,11 +65,6 @@
 		// pass PHP array of MP3 files declared above to JavaScript variable
 		var ar = <?php echo json_encode($mp3) ?>;
 		var BASE_AUDIO_PATH = '' + <?php echo json_encode($mp3directory) ?> + '/';
-
-		// sort files to be in alphabetical order by title
-		ar.sort(function (a, b) {
-			return a.toLowerCase().localeCompare(b.toLowerCase());
-		});
 
 		// Add <audio> files and buttons to soundboard
 		// preload set to "none" is optional
