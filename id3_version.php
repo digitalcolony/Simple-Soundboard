@@ -3,7 +3,7 @@
 	$mp3directory = $configs->MP3_DIRECTORY;
 
     $mp3 = array();
-	require_once('getid3/getid3.php');
+	require_once('getID3/getid3.php');
 	$getid3_engine = new getID3;
 	// confirm directory exists 
 	if (file_exists($mp3directory)) {
