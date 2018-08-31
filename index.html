@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Soundboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <script src="./inc/js/jquery-3.3.1.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./inc/css/bttn.css">
+    <link rel="stylesheet" href="/inc/css/sb.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAANCAIAAAAAAA4w7QBrZFwAWVlKAA8PDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERAREQEREBEREQABAQABEREREAAAABEREREREAARERERERETIxERERERERVVERERERERBQUBERERERAwMDARERERFQRUABEREREVQEBAERERERUEBAARERERFUBAQBEREREVBAQAERERERVFRUARERERFQQEABERERERVVABERHvewAA8UcAAPgPAAD+PwAA/j8AAP4/AAD8HwAA+A8AAPgPAAD4DwAA+A8AAPgPAAD4DwAA+A8AAPgPAAD8HwAA"
+        rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+    <nav id="topNav" class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand text-white" href="/">Simple Soundboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <div id="soundboard" style="padding-top:50px">
+    </div>
+
+    <script type="text/javascript">
+        var sounds = [];
+
+        $.ajax({
+            url: "./inc/json/soundboard.json", // Add link to your JSON file here
+            dataType: "json",
+            type: "get",
+            cache: false,
+            success: function (data) {
+                $(data.files).each(function (index, value) {
+                    var thisSound = {
+                        audioName: value.name,
+                        artistName: value.artist,
+                        mp3: value.mp3
+                    };
+                    sounds.push(thisSound);
+                })
+            }
+        }).done(function () {
+            sounds.map(file => {
+                $('#soundboard').append(function () {
+                    var thisAudio = $('<audio/>').attr({
+                        src: file.mp3,
+                        preload: "auto",
+                        onplay: "$(this).siblings('button').css('color', 'yellow');",
+                        onended: "$(this).siblings('button').css('color', 'white');"
+                    });
+                    var thisButton;
+
+                    if (file.artistName !== "") {
+
+                        thisButton = $('<button />')
+                            .addClass('myButton')
+                            .text(file.audioName)
+                            .attr("data-balloon", file.artistName)
+                            .attr("data-balloon-pos", "down");
+
+                    } else {
+                        thisButton = $('<button />')
+                            .addClass('myButton')
+                            .text(file.audioName);
+                    }
+                    return $('<span />').addClass('track').append(thisAudio).append(thisButton);
+                });
+            });
+            $('#soundboard').on('click', 'button', function () {
+                $(this).siblings('audio').get(0).play();
+            });
+        });
+
+    </script>
+
+    <p>View the <a href="https://github.com/digitalcolony/Simple-Soundboard">Simple Soundboard Repo</a> on GitHub. </p>
+</body>
+
+</html>
