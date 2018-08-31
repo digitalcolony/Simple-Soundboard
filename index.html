@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Simple Soundboard</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <script src="./src/js/jquery-3.3.1.min.js"></script>
+    <script src="./inc/js/jquery-3.3.1.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="./src/css/bttn.css">
+    <link rel="stylesheet" type="text/css" href="./inc/css/bttn.css">
+    <link rel="stylesheet" href="/inc/css/sb.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAANCAIAAAAAAA4w7QBrZFwAWVlKAA8PDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERAREQEREBEREQABAQABEREREAAAABEREREREAARERERERETIxERERERERVVERERERERBQUBERERERAwMDARERERFQRUABEREREVQEBAERERERUEBAARERERFUBAQBEREREVBAQAERERERVFRUARERERFQQEABERERERVVABERHvewAA8UcAAPgPAAD+PwAA/j8AAP4/AAD8HwAA+A8AAPgPAAD4DwAA+A8AAPgPAAD4DwAA+A8AAPgPAAD8HwAA"
         rel="icon" type="image/x-icon" />
@@ -33,23 +34,15 @@
         var sounds = [];
 
         $.ajax({
-            url: "./src/json/neil-rogers-show-soundboard.json", // Add link to your JSON file here
+            url: "./inc/json/soundboard.json", // Add link to your JSON file here
             dataType: "json",
             type: "get",
             cache: false,
             success: function (data) {
                 $(data.files).each(function (index, value) {
-                    // name includes name of audio track (audioName) 
-                    // and artist if available (artistName)
-                    var name = value.name.split(" - ");
-                    var audioName = name[0];
-                    var artistName = name[1];
-                    if (artistName === undefined) {
-                        artistName = "";
-                    }
                     var thisSound = {
-                        audioName: audioName,
-                        artistName: artistName,
+                        audioName: value.name,
+                        artistName: value.artist,
                         mp3: value.mp3
                     };
                     sounds.push(thisSound);
@@ -61,22 +54,24 @@
                     var thisAudio = $('<audio/>').attr({
                         src: file.mp3,
                         preload: "auto",
-                        onplay: "$(this).siblings('button').removeClass('bttn-primary').addClass('bttn-danger');",
-                        onended: "$(this).siblings('button').removeClass('bttn-danger').addClass('bttn-success');"
-                        // onplay: "$(this).siblings('button').css('color', 'yellow');",
-                        //  onended: "$(this).siblings('button').css('color', 'white');"
+                        onplay: "$(this).siblings('button').css('color', 'yellow');",
+                        onended: "$(this).siblings('button').css('color', 'white');"
                     });
                     var thisButton;
-                    file.audioName = file.audioName.substring(0, 35);
-                    if (file.artistName !== "") {
-                        thisButton = $('<button />')
-                            .attr('data-toggle', 'tooltip')
-                            .attr('data-placement', 'bottom')
-                            .attr('title', file.artistName).addClass('bttn-gradient bttn-md bttn-primary').text(file.audioName);
-                    } else {
-                        thisButton = $('<button />').addClass('bttn-gradient bttn-md bttn-primary').text(file.audioName);
-                    }
 
+                    if (file.artistName !== "") {
+
+                        thisButton = $('<button />')
+                            .addClass('myButton')
+                            .text(file.audioName)
+                            .attr("data-balloon", file.artistName)
+                            .attr("data-balloon-pos", "down");
+
+                    } else {
+                        thisButton = $('<button />')
+                            .addClass('myButton')
+                            .text(file.audioName);
+                    }
                     return $('<span />').addClass('track').append(thisAudio).append(thisButton);
                 });
             });
@@ -87,7 +82,7 @@
 
     </script>
 
-
+    <p>View the <a href="https://github.com/digitalcolony/Simple-Soundboard">Simple Soundboard Repo</a> on GitHub. </p>
 </body>
 
 </html>
