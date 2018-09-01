@@ -8,7 +8,7 @@
     require_once('getID3/getid3.php');
     $getid3_engine = new getID3;
     // confirm directory exists 
-    if (file_exists($mp3directory)) {
+    if (is_dir($mp3directory)) {
         // build an array of MP3 files 
         $it = new RecursiveDirectoryIterator(realpath($mp3directory));
 
@@ -66,5 +66,7 @@
 <body>
     <p>Simple Soundboard JSON Built successfully!</p>
     <p>Visit your <a href="<?php echo($configs->SOUNDBOARD_PAGE) ?>">Soundboard</a>.</p>
+
+   
 </body>
 </html>

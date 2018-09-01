@@ -7,7 +7,7 @@
     $sounds = array();
     
     // confirm directory exists 
-    if (file_exists($mp3directory)) {
+    if (is_dir($mp3directory)) {
         // build an array of MP3 files 
         $it = new RecursiveDirectoryIterator(realpath($mp3directory));
 
