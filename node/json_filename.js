@@ -32,14 +32,3 @@ fs.writeFile(process.env["JSON_FILENAME"], json, "utf8", function(err) {
     throw err;
   }
 });
-
-/*
-{
-  "files": [
-    {
-      "name": "Ayayayayayayayay!",
-      "artist": "",
-      "duration": "0:03",
-      "mp3": "/sounds/Ayayayayayayayay!.mp3"
-    },
-*/
