@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mp3-duration": "^1.1.0"
+    "path": "^0.12.7"
   }
 }
