@@ -25,7 +25,6 @@
                     // Not sure why, but getting a double quote to display right required a double decode.
                     $file_title = html_entity_decode(html_entity_decode($file_title));
                     $file_artist = html_entity_decode(html_entity_decode($file_artist));
-                    $playtime = $id3_info["playtime_string"];
                     $file_name = $mp3directory . $fileinfo->getFilename();
                     // Remove .. from path for Soundboard loading
                     $file_name = str_replace("../","/", $file_name);
@@ -35,7 +34,6 @@
 
                     $sounds[] = array('name'=> $file_title, 
                             'artist'=> $file_artist,
-                            'duration'=> $playtime, 
                             'mp3'=> $file_name);
                 }
             }			 
@@ -67,6 +65,6 @@
     <p>Simple Soundboard JSON Built successfully!</p>
     <p>Visit your <a href="<?php echo($configs->SOUNDBOARD_PAGE) ?>">Soundboard</a>.</p>
 
-   
+    <p></p>
 </body>
 </html>
