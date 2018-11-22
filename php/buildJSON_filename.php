@@ -20,7 +20,6 @@
                     $file_title = str_replace("[Q]","?", $file_title);
                     $file_title = str_replace("-"," ", $file_title); 
                     $file_artist = "";
-                    $duration = ""; 
 
                     $file_name = $mp3directory . $fileinfo->getFilename();
                     // Remove .. from path for Soundboard loading
@@ -28,7 +27,6 @@
                         
                     $sounds[] = array('name'=> $file_title, 
                             'artist'=> $file_artist,
-                            'duration'=> $duration, 
                             'mp3'=> $file_name);
                 }
             }			 
