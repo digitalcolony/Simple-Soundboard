@@ -101,6 +101,7 @@
           if (playOnlyOneSoundAtATime) {
             $.each($("audio"), function() {
               this.pause();
+              this.currentTime = 0;
             });
           }
 
