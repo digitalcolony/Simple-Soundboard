@@ -5,7 +5,7 @@ This code creates a Soundboard on a single HTML page that loads a JSON file. It 
 1.  Loads way faster.
 1.  Tablet and Mobile friendly.
 1.  Sorts alphabetically automatically.
-1.  You can play multiple drops simultaneously.
+1.  You can play multiple drops simultaneously. (optional)
 
 The original version required PHP. Now you can use PHP to build the JSON file of your Soundboard files, but it is not required.
 
@@ -14,6 +14,7 @@ The original version required PHP. Now you can use PHP to build the JSON file of
 1.  Create a new folder and place all the MP3 drops you wish to have on the soundboard. For this repo, I've added 20 drops to get you started.
 1.  Create or build a JSON file with the sound drops. I'll explain the format in the next section of this README.
 1.  Add a link to the JSON file on the Soundboard page. (EX: url: "./inc/json/soundboard.json")
+1.  Set the variable **_playOnlyOneSoundAtATime_** to true or false inside the javascript.
 1.  Deploy to any web server.
 
 ## JSON Format
