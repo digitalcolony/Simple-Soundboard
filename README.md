@@ -74,7 +74,7 @@ The ID3 version is the better version to use. If you need a tool to help you edi
 
 ## Demo and Sharing
 
-This is the [Neil Rogers Soundboard](https://neilrogers.org/soundboard/) built using this code. Let me know if you build a Soundboard you would like to share. You can [email me](digitalcolony@gmail.com) the link and I'll share it here for others to see.
+This is the [Neil Rogers Soundboard](https://neilrogers.org/soundboard/) built using this code. Let me know if you build a Soundboard you would like to share. You can email me (digitalcolony@gmail.com) the link and I'll share it here for others to see.
 
 ## Future Development
 
