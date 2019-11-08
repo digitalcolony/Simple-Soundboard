@@ -9,6 +9,10 @@ This code creates a Soundboard on a single HTML page that loads a JSON file. It 
 
 The original version required PHP. Now you can use PHP to build the JSON file of your Soundboard files, but it is not required.
 
+## 2019 Update
+
+You can now filter the drops with the text input. It will search track titles and artists.
+
 ## Getting Started
 
 1.  Create a new folder and place all the MP3 drops you wish to have on the soundboard. For this repo, I've added 20 drops to get you started.
@@ -44,7 +48,7 @@ You can create the JSON file a few different ways.
 
 1.  By hand. With any editor, you can type up your own JSON file that describes your Soundboard. This is perfect if where you want to host the Soundboard does not support server-side code.
 1.  With PHP. Included in this repo is PHP code that will build the JSON file for you. PHP is widely supported with web hosts.
-1.  NodeJS. The filename version is now completed. The ID3 version is yet to be coded. 
+1.  NodeJS. The filename version is now completed. The ID3 version is yet to be coded.
 
 ## Building the JSON with PHP
 
@@ -53,13 +57,13 @@ There are 2 ways to build the JSON file using PHP.
 1.  Filename: If you want the buttons to draw their names using the filename, use the **buildJSON_filename.php** page for your Simple Soundboard. To display a ? on the button use [Q] in the file name. Example: **why[Q].mp3**.
 1.  ID3: If your MP3 files have Titles defined in the ID3 tags, you will want to use the **buildJSON_id3.php** page for your Simple Soundboard. The code will draw the buttons on the soundboard using the getID3 library to read the title and artist. The ID3 title will be used for the button text and the artist will be used for a tooltip on mouseover.
 
-The ID3 version is the better version to use. If you need a tool to help you edit the ID3 tags of your MP3 files so they all have titles, look into [Mp3Tag](https://www.mp3tag.de/en/). Artist is optional. Drops without an artist will not have a tooltip. 
+The ID3 version is the better version to use. If you need a tool to help you edit the ID3 tags of your MP3 files so they all have titles, look into [Mp3Tag](https://www.mp3tag.de/en/). Artist is optional. Drops without an artist will not have a tooltip.
 
 ## Building the JSON with NodeJS
 
 1.  Filename: If you want the buttons to draw their names using the filename, use the **json_filename.js** page for your Simple Soundboard. To display a ? on the button use [Q] in the file name. Example: **why[Q].mp3**. From the node/ folder run node json_filename.js.
 
-1.  ID3: Not coded yet. 
+1.  ID3: Not coded yet.
 
 ## Some Ideas For Your Soundboard
 
