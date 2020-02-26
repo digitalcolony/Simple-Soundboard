@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple Soundboard</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    
     <script src="./inc/js/jquery-3.3.1.min.js"></script>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -20,7 +21,7 @@
     ></script>
     <link rel="stylesheet" type="text/css" href="/inc/css/bttn.css" />
     <link rel="stylesheet" type="text/css" href="/inc/css/sb.css" />
-    <link
+     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css"
     />
@@ -38,12 +39,19 @@
     >
       <a class="navbar-brand text-white" href="/">Simple Soundboard</a>
       <input
-        type="text"
+        type="search"
         class="input-sm"
         id="filterInput"
         placeholder="filter drops"
         autofocus
       />
+
+        <button class="btn bg-transparent btn-filter" id="filterClearBtn" style="margin-left: -40px; z-index: 100;font-size: 120%;">
+          &times;
+        </button>
+    </div>
+
+
       <button
         class="navbar-toggler"
         type="button"

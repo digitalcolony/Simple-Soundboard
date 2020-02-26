@@ -39,3 +39,7 @@
 	position:relative;
 	top:1px;
 }
+.btn-filter:focus, .btn-filter:active:focus, .btn-filter.active:focus{
+    outline:none;
+    box-shadow:none;
+}
