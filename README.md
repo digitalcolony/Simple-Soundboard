@@ -13,6 +13,10 @@ The original version required PHP. Now you can use PHP to build the JSON file of
 
 You can now filter the drops with the text input. It will search track titles and artists.
 
+## 2020 Update
+
+I created a [Svelte version](https://github.com/digitalcolony/simple-soundboard-svelte) of the Simple Soundboard. Check it out!
+
 ## Getting Started
 
 1.  Create a new folder and place all the MP3 drops you wish to have on the soundboard. For this repo, I've added 20 drops to get you started.
