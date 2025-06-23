@@ -1,3 +1,5 @@
+JUNE 2025: I rewrote the Soundboard as a Progressive Web Application (PWA). [Soundboard PWA](https://github.com/digitalcolony/soundboard-pwa)
+
 # Simple Single Page Soundboard
 
 This code creates a Soundboard on a single HTML page that loads a JSON file. It uses Javascript, JQuery, HTML5, and CSS. The JSON file can be created by hand or built using PHP. I was motivated to create this in 2015 when Soundboard.com ignored my two feature requests. This version is better than Soundboard.com in at least 4 ways:
